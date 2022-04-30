@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ event['name'] }} {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-3">
+            <img class="mb-4" width="150" src="{{ url_for('static', filename='images/yoga.jpeg') }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-6">
+            <h2 class="text-primary">{{ event['name'] }}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2"><strong>Date:</strong></div>
+        <div class="col">{{ event['date'] }}</div>
+        </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2 bg-light"><strong>Duration:</strong></div>
+        <div class="col-3 bg-light">{{ event['duration'] }}</div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2"><strong>Type:</strong></div>
+        <div class="col">{{ event['type'] }}</div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2"><strong>Level:</strong></div>
+        <div class="col">{{ event['level'] }}</div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2"><strong>Trainer:</strong></div>
+        <div class="col">{{ event['trainer'] }}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2"></div>
+        <div class="col-2"><strong>Description:</strong></div>
+        <div class="col">{{ event['desc'] }}</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-6 ">
+        <a href="{{ url_for('edit_event', class_id=class_id) }}" class="btn btn-primary">Edit this event</a>
+        <a href="{{ url_for('delete_event', class_id=class_id) }}" class="btn btn-danger">Delete this event</a>
+    </div>
+</div>
+
+{% endblock %}

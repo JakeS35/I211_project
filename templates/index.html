@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title%}Good Vibes Yoga{% endblock %}
+
+{% block content %}
+
+<div class="container-sm px-4 py-5 my-5 text-center bg-white text-dark bg-opacity-50">
+    <img class="d-block mx-auto mb-4" width="325" src="{{ url_for('static', filename='images/yoga.jpeg') }}">
+    <h1 class="display-5 fw-bold">Good Vibes Yoga</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Good Vibes Yoga offers a variety of quality yoga classes to meet your personal needs!</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="{{ url_for('list_events') }}">
+                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">See yoga classes!</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

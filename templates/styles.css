@@ -1,0 +1,14 @@
+#home-bkg { 
+    background: url(../images/markus-winkler-tGQS5wJUzjk-unsplash.jpg) no-repeat center center; 
+    background-size: cover;
+    height: 92vh;
+    min-height: 650px;
+}
+
+main > .container {
+    padding: 100px 15px 0 !important;
+}
+
+form label {
+    font-weight: bold;
+}

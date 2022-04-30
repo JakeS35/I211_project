@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if class_id %}
+        Edit a class
+    {% else %}
+        Create a Class!
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if class_id %}
+    {% set event_name = event['name'] %}
+    {% set event_date = event['date'] %}
+    {% set event_duration = event['duration'] %}
+    {% set event_level = event['level'] %}
+    {% set event_type = event['type'] %}
+    {% set event_trainer = event['trainer'] %}
+    {% set event_desc = event['desc'] %}
+    <h2>Edit event: {{ event_name }}</h2>
+{% else %}
+    {% set event_name = '' %}
+    {% set event_date = '' %}
+    {% set event_duration = '' %}
+    {% set event_level = '' %}
+    {% set event_type = '' %}
+    {% set event_trainer = '' %}
+    {% set event_desc = '' %}
+    <h2>Create a new event</h2>
+{% endif %}
+
+<form method="POST" name="create_event" class="container">
+    <div class="row my-2">
+        <div class="col-md-2 text-nowrap text-end">
+            <label for="name">Class Name:</label>
+        </div>
+        <div class="col">
+            <input type="text" id="name" name="name" value="{{event_name}}" size="40" />
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-2 text-end">
+            <label for="date">Date:</label>
+        </div>
+        <div class="col">
+            <input type="date" id="date" name="date"
+            value="{{event_date}}"
+            />
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-2 text-end">
+            <label for="duration">Duration:</label>
+        </div>
+        <div class="col">
+            <input type="text" id="duration" name="duration" 
+            value="{{event_duration}}"
+            size="40" />
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-2 text-end">
+            <label for="type">Yoga Type:</label>
+        </div>
+        <div class="col">
+            <input type="text" id="type" name="type" 
+            value="{{event_type}}"
+            size="40" />
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-2 text-end">
+            <label for="level">Yoga Level:</label>
+        </div>
+        <div class="col">
+            <select id="level" name="level">
+                <option value="beginner" 
+                 {% if event_level == "beginner" %}
+            selected 
+                {% endif %}
+                 >Beginner</option>
+                <option value="intermediate"
+                {% if event_level == "intermediate" %}
+            selected 
+                {% endif %}>Intermediate</option>
+                <option value="advanced"
+                {% if event_level == "advanced" %}
+            selected 
+                {% endif %}>Advanced</option>
+            </select>
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-2 text-end">
+            <label for="trainer">Trainer:</label>
+        </div>
+        <div class="col">
+            <input type="text" id="trainer" name="trainer" 
+            value="{{event_trainer}}"  
+            size="40" />
+        </div>
+    </div>
+    <div class="row my-2">
+        <div class="col-md-2 text-end">
+            <label for="desc">Description:</label>
+        </div>
+        <div class="col">
+            <textarea id="desc" name="desc" cols="40" rows="5"
+                value="{{event_desc}}"
+            >{{event_desc}}</textarea>
+        </div>
+    </div>
+    <div class="my-2 text-center">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-secondary" />
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<ul>
+    <div class="row">
+        <div class="col-4">
+            
+        </div>
+        <div class="col-3">
+            <img class="mb-4" width="150" src="{{ url_for('static', filename='images/yoga.jpeg') }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            
+        </div>
+        <div class="col-6">
+            <h2>Classes at Good Vibes Yoga</h2>
+        </div>
+    </div>
+    
+    <li class="row pb-sm-3 pb-md-0">
+        <div class="col-2"> </div>
+        <div class="col-md-2"><strong>Date</strong></div>
+        <div class="col-md-3"><strong>Class Name</strong></div>
+        <div class="col-md-2"><strong>Duration</strong></div>
+    </li>
+{% for event in events: %}
+    <li class="row pb-sm-3 pb-md-0">
+        <div class="col-2"> </div>
+        <div class="col-md-2 text-nowrap">{{ event['date'] }}</div>
+        <div class="col-md-3"><a href="{{ url_for('view_event', class_id=events.index(event)) }}">{{ event.name }}</a></div>
+        <div class="col-md-2 text-nowrap">{{ event['duration'] }}</div>
+    </li>
+{% endfor %}
+</ul>
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-3 my-2"><a class="btn btn-primary" href="{{ url_for('create_event') }}">Create a class!</a></div>
+    </div>
+</div>   
+{% endblock %}

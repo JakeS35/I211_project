@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Class{% endblock %}
+
+{% block content %}
+<h2 class="text-danger">Delete Event: {{ event['name'] }}</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-2"><strong>Date:</strong></div>
+        <div class="col">{{ event['date'] }}</div>
+        </div>
+    <div class="row">
+        <div class="col-2"><strong>Duration:</strong></div>
+        <div class="col">{{ event['duration'] }}</div>
+    </div>
+    <div class="row">
+        <div class="col-2"><strong>Type:</strong></div>
+        <div class="col">{{ event['type'] }}</div>
+    </div>
+    <div class="row">
+        <div class="col-2"><strong>Level:</strong></div>
+        <div class="col">{{ event['level'] }}</div>
+    </div>
+    <div class="row">
+        <div class="col-2"><strong>Trainer:</strong></div>
+        <div class="col">{{ event['trainer'] }}</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-2"><strong>Description:</strong></div>
+        <div class="col">{{ event['desc'] }}</div>
+    </div>
+</div>
+<div class="row">
+<div class="col-6 text-center">
+    <a href="{{ url_for('view_event', class_id=class_id) }}" class="btn btn-primary">Back to Event Details</a>
+    <a href="{{ url_for('delete_event', class_id=class_id, delete='1') }}" class="btn btn-danger">Really Delete This Event</a>
+</div>
+</div>
+{% endblock %}
